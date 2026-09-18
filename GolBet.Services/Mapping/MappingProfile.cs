@@ -28,6 +28,15 @@ public class MappingProfile : Profile
 
         CreateMap<Match, MatchDto>();
 
+        // GolBet.Services/Mapping/MappingProfile.cs  (agregar dentro del constructor) 
+
+        CreateMap<Match, MatchDetailDto>()
+
+            .ForMember(dto => dto.TotalBets,
+
+                       options => options.MapFrom(match => match.Bets.Count));
+
+
     }
 
 }
