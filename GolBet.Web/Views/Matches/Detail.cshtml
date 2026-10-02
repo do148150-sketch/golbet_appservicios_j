@@ -162,23 +162,30 @@
 
   
 
-    <div class="card-footer d-flex justify-content-between align-items-center">
+    <!-- Matches/Detail.cshtml, en el card-footer reemplazo el card footer por este bloque de code --> 
 
-        <small class="text-muted">🎟️ @Model.TotalBets apuestas realizadas</small>
+    <div class="card-footer d-flex justify-content-between align-items-center"> 
 
-        @if (Model.Status == MatchStatus.Scheduled)
+        <small class="text-muted">🎟️ @Model.TotalBets apuestas realizadas</small> 
 
-        {
+        <div> 
 
-            <button class="btn btn-success" disabled
-                    title="Disponible cuando implementemos las apuestas">
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-outline-primary">Editar</a> 
 
-                Apostar (Pendiente por codear)
+            @if (Model.Status == MatchStatus.Scheduled) 
 
-            </button>
+            { 
 
-        }
+                <button class="btn btn-success" disabled 
 
-    </div>
+                        title="Disponible cuando implementemos las apuestas"> 
 
-</div> 
+                    Apostar (Módulo 8) 
+
+                </button> 
+
+            } 
+
+        </div> 
+
+    </div> 
