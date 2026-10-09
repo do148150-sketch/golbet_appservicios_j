@@ -1,18 +1,24 @@
 ﻿// GolBet.Web/Controllers/TeamsController.cs 
 
-using GolBet.Services.DTOs; 
+using GolBet.Repositories.Data;
 
-using GolBet.Services.Interfaces; 
+using GolBet.Services.DTOs;
 
-using Microsoft.AspNetCore.Mvc; 
+using GolBet.Services.Interfaces;
 
-  
+using Microsoft.AspNetCore.Authorization;
 
-namespace GolBet.Web.Controllers; 
+using Microsoft.AspNetCore.Mvc;
 
-  
 
-public class TeamsController : Controller 
+
+namespace GolBet.Web.Controllers;
+
+
+
+[Authorize(Roles = DbSeeder.AdminRole)]
+
+public class TeamsController : Controller
 
 { 
 
