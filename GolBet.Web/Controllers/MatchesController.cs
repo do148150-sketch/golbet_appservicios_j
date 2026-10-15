@@ -42,17 +42,25 @@ public class MatchesController : Controller
 
 
 
-    // GET /Matches            -> all matches
+    // GET /Matches                      -> all matches
 
-    // GET /Matches?status=Scheduled -> filtered board
+    // GET /Matches?status=Scheduled     -> filtered board
 
-    public async Task<IActionResult> Index(MatchStatus? status)
+    // GET /Matches?search=nacional      -> searched board
+
+    public async Task<IActionResult> Index(MatchStatus? status, string? search)
 
     {
 
+        // Shared with the view so the filter buttons keep the search
+
+        // and the search box keeps the active filter.
+
         ViewBag.CurrentStatus = status;
 
-        var board = await _matchService.GetBoardAsync(status);
+        ViewBag.CurrentSearch = search;
+
+        var board = await _matchService.GetBoardAsync(status, search);
 
         return View(board);
 
