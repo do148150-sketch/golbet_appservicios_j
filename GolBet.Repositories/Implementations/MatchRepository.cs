@@ -23,7 +23,7 @@ public class MatchRepository : GenericRepository<Match>, IMatchRepository
 
         if (status.HasValue)
             query = query.Where(m => m.Status == status.Value);
-
+        
         // Search by team name: home OR away. Translated to SQL LIKE, never filtered in memory.
         // Team.Name uses the CI_AI collation set in Module 2, so the match ignores case and accents.
         if (!string.IsNullOrWhiteSpace(search))
